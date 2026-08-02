@@ -184,7 +184,12 @@
 }
 
 @utility text-gradient {
-  background: var(--gradient-hero);
+  background: linear-gradient(
+    100deg,
+    oklch(0.427 0.083 168),
+    oklch(0.52 0.1 166) 55%,
+    oklch(0.6 0.11 164)
+  );
   background-clip: text;
   color: transparent;
 }
