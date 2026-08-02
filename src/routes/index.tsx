@@ -1,24 +1,64 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { CursorGlow, ScrollProgress } from "@/components/site/primitives";
+import { Nav } from "@/components/site/nav";
+import { Hero } from "@/components/site/hero";
+import {
+  BentoFeatures,
+  Categories,
+  ProblemSection,
+  TrustedBy,
+  WhyArtSphere,
+} from "@/components/site/sections-a";
+import {
+  AIFeatures,
+  Community,
+  HowItWorks,
+  PlatformPreview,
+  Stats,
+  Testimonials,
+} from "@/components/site/sections-b";
+import { FAQ, FinalCTA, Footer, Pricing } from "@/components/site/sections-c";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "ArtSphere — Where Creativity Meets Opportunity";
+const description =
+  "ArtSphere is the global platform where artists build careers: verified portfolios, direct hiring, bookings, collaboration, mentorship and AI-powered growth.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="relative overflow-x-hidden">
+      <ScrollProgress />
+      <CursorGlow />
+      <Nav />
+      <Hero />
+      <TrustedBy />
+      <WhyArtSphere />
+      <ProblemSection />
+      <BentoFeatures />
+      <Categories />
+      <PlatformPreview />
+      <HowItWorks />
+      <AIFeatures />
+      <Community />
+      <Testimonials />
+      <Stats />
+      <Pricing />
+      <FAQ />
+      <FinalCTA />
+      <Footer />
+    </main>
   );
 }
