@@ -99,7 +99,9 @@ export function Hero() {
         >
           <div className="absolute inset-8 rounded-[3rem] bg-[image:var(--gradient-hero)] opacity-25 blur-3xl" />
           <FloatingPhone>
-            <PhoneFrame />
+            <PhoneFrame>
+              <HomeFeedScreen />
+            </PhoneFrame>
           </FloatingPhone>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
